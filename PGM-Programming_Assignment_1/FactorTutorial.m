@@ -50,8 +50,11 @@
 %
 % to X_3, X_1 and X_2 respectively (as defined by phi.var = [3 1 2]), I = 6 
 % as phi.val(6) corresponds to the value of phi(X_3 = 2, X_1 = 1, X_2 = 2).
-% Thus, AssignmentToIndex([2 1 2], [2 2 2]) returns 6, and conversely, 
-% IndexToAssignment(6, [2 2 2]) returns the vector [2 1 2]. The second
+% Thus, 
+%                      AssignmentToIndex([2 1 2], [2 2 2]) 
+% returns 6, and conversely, 
+%                      IndexToAssignment(6, [2 2 2]) 
+% returns the vector [2 1 2]. The second
 % argument in the function calls corresponds to the cardinality of the
 % sample factor phi, phi.card, which is [2 2 2].
 %

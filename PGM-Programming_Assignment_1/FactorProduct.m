@@ -53,8 +53,8 @@ C.val = zeros(1, prod(C.card));
 % Compute some helper indices
 % These will be very useful for calculating C.val
 % so make sure you understand what these lines are doing.
-assignments = IndexToAssignment(1:prod(C.card), C.card);
-indxA = AssignmentToIndex(assignments(:, mapA), A.card);
+assignments = IndexToAssignment(1:prod(C.card), C.card); % generate all assignemnts for the factor as a 2D matrix
+indxA = AssignmentToIndex(assignments(:, mapA), A.card); % gets all the indexes  for maps
 indxB = AssignmentToIndex(assignments(:, mapB), B.card);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,6 +62,10 @@ indxB = AssignmentToIndex(assignments(:, mapB), B.card);
 % Correctly populate the factor values of C
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+for i = 1:prod(C.card)
+    C.val(i) = A.val(indxA(i)) * B.val(indxB(i));
+end
+%C(assignments) = A.val(indxA) * B.val(indxB);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 end
