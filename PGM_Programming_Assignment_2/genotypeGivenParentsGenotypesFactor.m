@@ -59,7 +59,15 @@ genotypeFactor = struct('var', [], 'card', [], 'val', []);
 % Fill in genotypeFactor.var.  This should be a 1-D row vector.
 % Fill in genotypeFactor.card.  This should be a 1-D row vector.
 
+genotypeFactor.var = [genotypeVarChild genotypeVarParentOne genotypeVarParentTwo];
+numGenotypes = nchoosek(numAlleles, 2) + numAlleles;
+genotypeFactor.card = [numGenotypes numGenotypes numGenotypes]; % it will be a cubic that sets a probability for each case of genotype matches
+
 genotypeFactor.val = zeros(1, prod(genotypeFactor.card));
 % Replace the zeros in genotypeFactor.val with the correct values.
+
+for i=0:prod(genotypeFactor.card)
+    genotypeFactor.val(i) = 
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

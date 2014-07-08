@@ -21,7 +21,7 @@ phenotypeFactorAlpha = struct('var', [3,1], 'card', [2,3], 'val', [0.8,0.2,0.6,0
  phenotypeFactorAlpha = phenotypeGivenGenotypeFactor(alphaList, genotypeVar, phenotypeVar);
 
 % Testing genotypeGivenAlleleFreqsFactor:
-alleleFreqs = [0.1; 0.4; 0.5];
+alleleFreqs = [0.1; 0.9];
 genotypeVar = 1;
 genotypeFactor = struct('var', [1], 'card', [3], 'val', [0.01,0.18,0.81]); % Comment out this line for testing
  genotypeFactor = genotypeGivenAlleleFreqsFactor(alleleFreqs, genotypeVar);
@@ -32,7 +32,7 @@ genotypeVarChild = 3;
 genotypeVarParentOne = 1;
 genotypeVarParentTwo = 2;
 genotypeFactorPar = struct('var', [3,1,2], 'card', [3,3,3], 'val', [1,0,0,0.5,0.5,0,0,1,0,0.5,0.5,0,0.25,0.5,0.25,0,0.5,0.5,0,1,0,0,0.5,0.5,0,0,1]); % Comment out this line for testing
-% genotypeFactorPar = genotypeGivenParentsGenotypesFactor(numAlleles, genotypeVarChild, genotypeVarParentOne, genotypeVarParentTwo);
+ genotypeFactorPar = genotypeGivenParentsGenotypesFactor(numAlleles, genotypeVarChild, genotypeVarParentOne, genotypeVarParentTwo);
 
 % Testing constructGeneticNetwork:
 pedigree = struct('parents', [0,0;1,3;0,0]);
@@ -40,7 +40,7 @@ pedigree.names = {'Ira','James','Robin'};
 alleleFreqs = [0.1; 0.9];
 alphaList = [0.8; 0.6; 0.1];
 sampleFactorList = load('sampleFactorList.mat'); % Comment out this line for testing
-% sampleFactorList = constructGeneticNetwork(pedigree, alleleFreqs, alphaList);
+ sampleFactorList = constructGeneticNetwork(pedigree, alleleFreqs, alphaList);
 
 % Testing phenotypeGivenCopiesFactor:
 alphaListThree = [0.8; 0.6; 0.1; 0.5; 0.05; 0.01];
